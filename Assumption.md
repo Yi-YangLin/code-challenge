@@ -1,4 +1,4 @@
-Assumptions when using the ingandLTV calculation:
+### Assumptions when using the ingandLTV calculation:
 
 1.	Data type of event(e) in Ingest function must be dictionary.
 2.	Data type of data file (D) in Ingest function must be string(file name with Filename Extension)
