@@ -12,7 +12,7 @@
 
 ### Something about Pandas:
 
-Pandas is a pretty convenient package for data preprocessing and data visualization. 
+Pandas is a pretty good and convenient package for data preprocessing and data visualization. 
 
 For example, we can handle the whole column by a single function without using for loop. It can easily construct list or dictionary into data table and output it. The most important thing is that there is no specific total columns or rows limit when using Pandas. In most of the situation we don’t need to do split into subset and combine them later, which is confusing and prone to mistakes.
 
