@@ -111,7 +111,8 @@ def TopXSimpleLTVCustomers(x, D):
     ## Select 'customer_id', 'last_name', 'LTV' as what we need and rename column name
     Result = Result[['index', 'last_name', 'LTV']].rename(columns={'index':'customer_id'})
     
-    outputpath = '.\\output\\TopXSimpleLTVCustomers('+str(x)+', '+D+').txt'
+    outputpath = '.\\output\\output.txt'
+    #outputpath = '.\\output\\TopXSimpleLTVCustomers('+str(x)+', '+D+').txt'
     Result.to_csv(outputpath)
     
     return Result
