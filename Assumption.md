@@ -7,5 +7,5 @@
 5.	No matter what kinds of update for the event, the event_time is always the latest one.
 6.	Customers may create personal files prior to really coming to the store. As a result, when counting total weeks for visit, the start date will be the first time that customer really visit the store. (Event table with Site_Visit)
 7.  Simple LTV put emphasis on visiting the site, even though the orders may be from online shopping or by other media.
-8.  Event_time is given whenever an event is given.
+8.  Event_time is given whenever an event is given, and all the Event_times are in the correct format.
 
