@@ -1,1 +1,4 @@
-Your output data will end up here
+,customer_id,last_name,LTV
+0,96f55c7d8f43,Scott,10344.533333333333
+1,96f55c7d8f42,Smith,2138.9333333333334
+2,96f55a7d8f46,Stults,1792.2666666666667
