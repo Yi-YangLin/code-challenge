@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[30]:
+# In[56]:
 
 def Ingest(e, D):
     ## Since ast is the default package of python, I do not add this package to the source file
@@ -95,7 +95,7 @@ def TopXSimpleLTVCustomers(x, D):
     ## reset index
     TopN = TopN.reset_index()
     ## get customer_id as list
-    TopNlist = list(TopN.iloc[0:x]['customer_id'])
+    TopNlist = list(TopN.iloc[0:x]['index'])
     
     
     ####Combine customer_id, LTV, and customer's last name
@@ -107,9 +107,9 @@ def TopXSimpleLTVCustomers(x, D):
     ## Select data of TopN customers
     CusData = CusData[CusData['key'].isin(TopNlist)].reset_index().drop('index', 1)
     ## Left join to merge TopN table and TopN customer data, so that it prevent from that some table with customer_id but without last name
-    Result = pd.merge(TopN, CusData, how = 'left', left_on = 'customer_id', right_on = 'key')
+    Result = pd.merge(TopN, CusData, how = 'left', left_on = 'index', right_on = 'key')
     ## Select 'customer_id', 'last_name', 'LTV' as what we need and rename column name
-    Result = Result[['customer_id_x', 'last_name', 'LTV']].rename(columns={'customer_id_x':'customer_id'})
+    Result = Result[['index', 'last_name', 'LTV']].rename(columns={'index':'customer_id'})
     
     outputpath = '.\\output\\TopXSimpleLTVCustomers('+str(x)+', '+D+').txt'
     Result.to_csv(outputpath)
