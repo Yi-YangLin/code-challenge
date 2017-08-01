@@ -1,29 +1,31 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[30]:
 
 def Ingest(e, D):
+    ## Since ast is the default package of python, I do not add this package to the source file
     import ast
     ## Read data
-    Data = open(D, "r")
+    path = '.\\input\\'+D
+    Data = open(path, "r")
     ## Transform string data to list with dict elements
     Data = ast.literal_eval(Data.read())
     ##　Append Event with Dictionary format
     Data.append(e)
-    ## Output as txt file
-    with open(D, "w") as output:
+    ## Output and replace as txt file
+    with open(path, "w") as output:
         output.write(str(Data))
 
 
 def TopXSimpleLTVCustomers(x, D):
     ## import necessary package
-    import numpy as np
     import ast
-    import pandas as pd
+    from src import pandas as pd
     
     #### Read data and reformat it into dataframe
-    Data = open(D, "r") 
+    path = '.\\input\\'+D
+    Data = open(path, "r") 
     df = pd.DataFrame(ast.literal_eval(Data.read()))
     ## Transform event_time to datatime
     df['event_time'] = pd.to_datetime(df['event_time'])
@@ -108,9 +110,11 @@ def TopXSimpleLTVCustomers(x, D):
     Result = pd.merge(TopN, CusData, how = 'left', left_on = 'customer_id', right_on = 'key')
     ## Select 'customer_id', 'last_name', 'LTV' as what we need and rename column name
     Result = Result[['customer_id_x', 'last_name', 'LTV']].rename(columns={'customer_id_x':'customer_id'})
-
+    
+    outputpath = '.\\output\\TopXSimpleLTVCustomers('+str(x)+', '+D+').txt'
+    Result.to_csv(outputpath)
+    
     return Result
-        
-        
+
         
 
